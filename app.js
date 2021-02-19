@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 
 // MySql
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'TazMania@12',
-    database: 'alkemy'
+    host: 'us-cdbr-east-03.cleardb.com',
+    user: 'b98e6178785873',
+    password: '9cbabb56',
+    database: 'heroku_88f042983371ef6'
 });
 
 // Route
