@@ -16,7 +16,7 @@ const connection = mysql.createPool({
     password: '9cbabb56',
     database: 'heroku_88f042983371ef6'
 });
-
+module.exports = connection;
 // const connection = mysql.createConnection({
 //     host: 'us-cdbr-east-03.cleardb.com',
 //     user: 'b98e6178785873',
