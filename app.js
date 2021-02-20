@@ -37,6 +37,9 @@ connection.getConnection((err, connection) => {
     }
 
     if (connection) {
+        connection.setHeader('Access-Control-Allow-Origin', '*');
+        connection.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+        connection.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         connection.release();
         console.log('DB is conected');
     }
