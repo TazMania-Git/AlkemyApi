@@ -25,6 +25,33 @@ const connection = mysql.createPool({
 
 // module.exports = connection;
 
+// Check connect
+
+connection.getConnection((err, connection) => {
+    if (err) {
+        if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+            console.error('DATABASE CONNECTION WAS CLOSED');
+        } else {
+            console.error(err.code);
+        }
+    }
+
+    if (connection) {
+        connection.release();
+        console.log('DB is conected');
+    }
+});
+
+module.exports = connection;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+// connection.connect(error => {
+//     if (error) throw error;
+//     console.log('Database server running!');
+// });
+
 
 // Route
 app.get('/', (req, res) => {
@@ -99,11 +126,3 @@ app.delete('/delete/:id', (req, res) => {
         res.send('Delete Form');
     });
 });
-
-// Check connect
-connection.connect(error => {
-    if (error) throw error;
-    console.log('Database server running!');
-});
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
