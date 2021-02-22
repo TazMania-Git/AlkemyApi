@@ -101,7 +101,7 @@ app.post('/formularios/add', (req, res) => {
 
     connection.query(sql, customerObj, error => {
         if (error) throw error;
-        res.send('Form created!');
+        res.send({ succcess: true, message: 'Form created!' });
     });
 });
 
@@ -113,7 +113,7 @@ app.put('/update/:id', (req, res) => {
 
     connection.query(sql, error => {
         if (error) throw error;
-        res.send('Form updated!');
+        res.send({ succcess: true, message: 'Form updated!' });
     });
 });
 
