@@ -68,7 +68,7 @@ app.get('/formularios', (req, res) => {
         if (results.length > 0) {
             res.json(results);
         } else {
-            res.send('Not result');
+            res.send({ succcess: true, message: 'No Results' });
         }
     });
 });
@@ -83,7 +83,7 @@ app.get('/formularios/:id', (req, res) => {
         if (result.length > 0) {
             res.json(result);
         } else {
-            res.send('Not result');
+            res.send({ succcess: true, message: 'No Results' });
         }
     });
 });
@@ -124,6 +124,6 @@ app.delete('/delete/:id', (req, res) => {
 
     connection.query(sql, error => {
         if (error) throw error;
-        res.send('Delete Form');
+        res.send({ succcess: true, message: 'Delete Form' });
     });
 });
