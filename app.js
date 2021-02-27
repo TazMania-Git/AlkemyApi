@@ -17,14 +17,6 @@ const connection = mysql.createPool({
     password: '9cbabb56',
     database: 'heroku_88f042983371ef6'
 });
-// const connection = mysql.createConnection({
-//     host: 'us-cdbr-east-03.cleardb.com',
-//     user: 'b98e6178785873',
-//     password: '9cbabb56',
-//     database: 'heroku_88f042983371ef6'
-// });
-
-// module.exports = connection;
 
 // Check connect
 
@@ -48,13 +40,7 @@ module.exports = connection;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
-// connection.connect(error => {
-//     if (error) throw error;
-//     console.log('Database server running!');
-// });
-
-
-// Route
+// SALUDO INICIAL AL SOLO SOLICITAR "/"
 app.get('/', (req, res) => {
     res.send('Welcome to Alkemy API!');
 });
@@ -109,7 +95,9 @@ app.post('/formularios/add', (req, res) => {
 app.put('/update/:id', (req, res) => {
     const { id } = req.params;
     const { form_concepto, form_monto, form_fecha, form_tipo } = req.body;
-    const sql = `UPDATE formularios SET form_concepto = '${form_concepto}', form_monto='${form_monto}', form_fecha='${form_fecha}',form_tipo='${form_tipo}'  WHERE form_id =${id}`;
+    const sql = `UPDATE formularios SET form_concepto = '${form_concepto}',
+                 form_monto='${form_monto}', form_fecha='${form_fecha}',    
+                 form_tipo='${form_tipo}'  WHERE form_id =${id}`;
 
     connection.query(sql, error => {
         if (error) throw error;
