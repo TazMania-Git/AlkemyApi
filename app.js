@@ -10,12 +10,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// MySql
+// MySql // IMPORTANTE!! POR CUESTIONES DE SEGURIDAD Y PRIVACIDAD EL ACCESO A LA DB NO SE DEJO
 const connection = mysql.createPool({
-    host: 'us-cdbr-east-03.cleardb.com',
-    user: 'b98e6178785873',
-    password: '9cbabb56',
-    database: 'heroku_88f042983371ef6'
+    host: '',
+    user: '',
+    password: '',
+    database: ''
 });
 
 // Check connect
